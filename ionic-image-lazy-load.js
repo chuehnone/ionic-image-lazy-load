@@ -45,7 +45,7 @@ angular.module('ionicLazyLoad')
       }
 
       var deregistration = $scope.$on('lazyScrollEvent', function () {
-        if (isInView() && $element[0].src != $attributes.imageLazySrc) {
+        if ($element[0].src != $attributes.imageLazySrc && isInView()) {
           $element[0].src = $attributes.imageLazySrc;
         }
       });
