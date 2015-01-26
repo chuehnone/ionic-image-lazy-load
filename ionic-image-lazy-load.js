@@ -1,7 +1,7 @@
 /**
  * Created by PAVEI on 30/09/2014.
  * Updated by Ross Martin on 12/05/2014
- * Updated by Chuehnone on 14/01/2015
+ * Updated by Chuehnone on 26/01/2015
  */
 
 angular.module('ionicLazyLoad', []);
@@ -33,27 +33,34 @@ angular.module('ionicLazyLoad')
     restrict: 'A',
     link: function ($scope, $element, $attributes) {
       function isInView() {
-        var clientHeight = $document[0].documentElement.clientHeight;
-        var clientWidth = $document[0].documentElement.clientWidth;
+        // console.log("is:"+$attributes.imageId+"\n");
         var imageRect = $element[0].getBoundingClientRect();
-        return imageRect.top >= 0 && imageRect.bottom/3 <= clientHeight;
+        var imageRectTop = imageRect.top;
+        var imageRectBottom = imageRect.bottom;
+        var clientHeight = $document[0].documentElement.clientHeight + (imageRectBottom - imageRectTop);
+        // console.log("T:"+imageRect.top+", B:"+imageRect.bottom+",N:"+clientHeight+"\n");
+        return imageRectTop >= 0 && imageRectBottom <= clientHeight;
       }
 
       // on load set src
       if (isInView()) {
+        // console.log("init:"+$attributes.imageId+"\n");
         $element[0].src = $attributes.imageLazySrc;
       }
 
-      var deregistration = $scope.$on('lazyScrollEvent', function () {
-        if ($element[0].src != $attributes.imageLazySrc && isInView()) {
-          $element[0].src = $attributes.imageLazySrc;
-        }
+      $scope.$on('lazyScrollEvent', function () {
+        $scope.$evalAsync(function(){
+          // console.log($attributes.imageId+"\n");
+          if ($element[0].src != $attributes.imageLazySrc && isInView()) {
+            $element[0].src = $attributes.imageLazySrc;
+          }
+        });
       });
 
       // unbind event listeners if element was destroyed
       // it happens when you change view, etc
       $element.on('$destroy', function () {
-        deregistration();
+        // console.log("destroy\n");
       });
     }
   };

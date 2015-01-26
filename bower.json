@@ -1,0 +1,24 @@
+{
+  "name": "ionic-image-lazy-load",
+  "main": "ionic-image-lazy-load.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/chuehnone/ionic-image-lazy-load",
+  "authors": [
+    "chuehnone <chuehnone@gmail.com>"
+  ],
+  "description": "Directive for the Ionic Framework that only loads an image when it is seen by the user. It uses the scroller event to load the image only when it appears on screen.",
+  "keywords": [
+    "ionic",
+    "image",
+    "lazy",
+    "load"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

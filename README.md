@@ -3,7 +3,7 @@ ionic-image-lazy-load
 
 ## [Updated by me](https://github.com/rossmartin/) 12-5-2014 for the latest Ionic (pre beta 14 nightlies)
 
-## [Updated by Chuehnone](https://github.com/chuehnone/) 14-01-2015
+## [Updated by Chuehnone](https://github.com/chuehnone/) 26-01-2015
 
 Directive for the [Ionic Framework](http://ionicframework.com/) that only loads an image when it is seen by the user. 
 It uses the scroller event to load the image only when it appears on screen.
