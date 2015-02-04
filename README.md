@@ -16,6 +16,12 @@ Download the file JS *ionic-image-lazy-load.js*, save on your project and load i
 <script src="path/to/ionic-image-lazy-load.js"></script>
 ```
 
+or
+
+``` html
+<script src="path/to/ionic-image-lazy-load.min.js"></script>
+```
+
 Load into your module:
 
 ``` javascript
